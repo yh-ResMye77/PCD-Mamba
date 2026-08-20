@@ -1,0 +1,88 @@
+model:
+  name: PCDMamba
+  in_channels: 3
+  out_channels: 3
+  dim: 64
+
+adpp:
+  name: AdaptiveDualPriorPerceiver
+  prior_channels: 32
+  dark_channel_window: 15
+  attenuation_estimator: true
+  color_prior_fusion: dark_channel_times_structural_mask
+
+pgmb:
+  name: PhaseGuidedMambaBlock
+  mamba_block: Mamba-1
+  d_state: 16
+  d_conv: 4
+  expand: 2
+
+padm:
+  name: PhaseAlignedDiscretizationModulation
+  mode: affine_scale_and_shift
+
+pmsc:
+  name: PhaseMaskedSpatialCompensation
+  laplacian_kernel: 3
+  gate: conv1x1_sigmoid
+
+pfsc:
+  name: ProgressiveFrequencyGuidedSchedulingCurriculum
+  stage_1:
+    name: structure
+    end_ratio: 0.25
+    losses:
+      l1: 1.0
+      phase_consistency: 0.5
+      ssim: 0.2
+  stage_2:
+    name: detail
+    end_ratio: 0.75
+    losses:
+      l1: 0.8
+      focal_frequency: 1.0
+      gradient: 1.0
+      phase_consistency: 0.1
+  stage_3:
+    name: refine
+    losses:
+      l1: 1.0
+      focal_frequency: 0.1
+      phase_consistency: 0.1
+      gradient: 0.1
+      ssim: 0.1
+
+data:
+  image_size: 256
+  train_split: train
+  val_split: val
+  input_dirs:
+    - hazy
+    - input
+  target_dirs:
+    - clear
+    - groundtruth
+  train_augmentation:
+    horizontal_flip: true
+    underwater_color_attenuation: true
+
+training:
+  batch_size: 8
+  total_epochs: 600
+  optimizer: AdamW
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler: CosineAnnealingLR
+  eta_min: 
+  grad_clip_norm: 0.5
+  amp: true
+  save_every: 50
+  val_every: 1
+
+evaluation:
+  metrics:
+    - PSNR
+    - SSIM
+    - MS-SSIM
+    - UIQM

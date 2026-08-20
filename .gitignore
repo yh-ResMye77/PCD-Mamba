@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.pkl
+*.pth
+*.pt
+*.ckpt
+*.onnx
+data/
+datasets/
+results/
+runs/
+outputs/
+checkpoints/
+.idea/
+.vscode/
+.DS_Store

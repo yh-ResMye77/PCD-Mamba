@@ -1,0 +1,9 @@
+torch
+torchvision
+tqdm
+numpy
+Pillow
+opencv-python
+matplotlib
+mamba-ssm>=1.0,<2.0
+causal-conv1d
