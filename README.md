@@ -2,13 +2,6 @@
 
 Official code scaffold for **Phase-Conditioned Decoupled Mamba for Underwater Image Enhancement with Noise-Resistant Structural Priors**.
 
-The released implementation follows the paper naming directly:
-
-- **ADPP**: Adaptive Dual-Prior Perceiver.
-- **PGMB**: Phase-Guided Mamba Block.
-- **PADM**: Phase-Aligned Discretization Modulation.
-- **PMSC**: Phase-Masked Spatial Compensation.
-- **PFSC**: Progressive Frequency-Guided Scheduling Curriculum.
 
 ## Environment
 
