@@ -67,14 +67,6 @@ dataset_root/
 
 File names are matched by exact file name first, then by stem.
 
-Example:
-
-```bash
-python train_pcd_mamba.py \
-  --private_dir datasets/UIEB \
-  --results_dir results/PCD_Mamba \
-  --gpu 0
-```
 
 ## Train
 
@@ -84,16 +76,6 @@ python train_pcd_mamba.py \
   --results_dir results/PCD_Mamba \
   --train_batch_size 8 \
   --total_epochs 600 \
-  --gpu 0
-```
-
-Resume training:
-
-```bash
-python train_pcd_mamba.py \
-  --private_dir /path/to/dataset_root \
-  --results_dir results/PCD_Mamba \
-  --resume results/PCD_Mamba/models/latest.pth \
   --gpu 0
 ```
 
