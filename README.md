@@ -9,7 +9,7 @@ Official code scaffold for **Phase-Conditioned Decoupled Mamba for Underwater Im
 pip install -r requirements.txt
 ```
 
-This implementation uses the Mamba-1 block API, `mamba_ssm.Mamba`, not `Mamba2`.
+This implementation uses the Mamba-1 block API, `mamba_ssm.Mamba`.
 Install `mamba-ssm` and `causal-conv1d` versions that match your CUDA and PyTorch environment.
 
 ## Configuration
