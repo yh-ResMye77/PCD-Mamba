@@ -89,7 +89,6 @@ If you find this repository useful, please kindly consider citing the following 
 ```
 @inproceedings{10.2312:pg.20261033,
 booktitle = {Pacific Graphics 2026 - Conference Papers and Posters},
-editor = {He, Ying and Thuerey, Nils and Liu, Lingjie},
 title = {{Phase-Conditioned Decoupled Mamba for Underwater Image Enhancement with Noise-Resistant Structural Priors}},
 author = {Huang, Yun and Zeng, Zhi and Zhang, Zhiyuan and Tian, Yibin},
 year = {2026},
