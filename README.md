@@ -86,8 +86,7 @@ python eval_pcd_mamba.py \
 ## Citation
 
 If you find this repository useful, please kindly consider citing the following paper:
-```
-        @inproceedings{10.2312:pg.20261033,
+```@inproceedings{10.2312:pg.20261033,
 booktitle = {Pacific Graphics 2026 - Conference Papers and Posters},
 editor = {He, Ying and Thuerey, Nils and Liu, Lingjie},
 title = {{Phase-Conditioned Decoupled Mamba for Underwater Image Enhancement with Noise-Resistant Structural Priors}},
